@@ -1,26 +1,29 @@
 ---
 layout: post
-title:  "Shade Lotus - a blog by Chad Furman"
+title:  "Free Blogging for Developers"
 date:   2015-08-09 01:10:15
 categories: [general news]
 tags: [launching, jekyll, blog, github pages]
 ---
-Is it always the first paragraph?
+Are you looking for a new blogging platform?  Is WordPress, Tumblr, and others too clunky / hefty for your simple blog?  Make your blog beautiful and light-weight on Github Pages with Jekyll!
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+I assume you have / are familiar with the following:
+* Node
+* Ruby Gems
+* Git
+* CSS/HTML
+* YAML
+* SASS
+* the command line
 
-Jekyll also offers powerful support for code snippets:
+* Step 0: Install [Jekyll](http://jekyllrb.com/docs/quickstart/)
+* Step 1: Create a [GitHub](https://github.com) account (if you don't already have one) -- remember the name!  ;)
+* Step 2: Create a repo named as follows: yourGitHubUserNameGoesHere.github.io
+* Step 2a: If you created the repo via GitHub, clone it down
+* Step 3: $ cd /path/to/cloned/yourGithubUserNameGoesHere.github.io
+* Step 4: $ jekyll new .
+* Step 5: commit (note: master branch displays) and push to the remote
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+At this point, http://yourGithubUserNameHere.github.io will be your blog!  Take a few moments to learn about Jekyll, creating posts, and making your own templates.
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
-
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+Enjoy!
