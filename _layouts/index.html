@@ -9,7 +9,7 @@ layout: default
 			<h2 class="mdl-card__title-text"><a href="{{ post.url }}">{{ post.title }}</a></h2>
 		</div>
 		<div class="mdl-card__supporting-text mdl-card--border">
-			<p>{{ post.excerpt }}</p>
+			<p>{{ post.excerpt | markdownify }}</p>
 		</div>
 		<div class="mdl-card__actions mdl-card--border">
 			<a class="mdl-button mdl-button--colored">Read More</a>
