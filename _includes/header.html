@@ -3,16 +3,29 @@
 		<!-- Top row, always visible -->
 		<div class="mdl-layout__header-row">
 			<!-- Title -->
-			<span class="mdl-layout-title">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</span>
+			<h2 class="mdl-layout-title">
+				<a href="/">{{ site.title }}</a>
+			</h2>
 
 			<div class="mdl-layout-spacer"></div>
 			<!-- Navigation -->
-			<nav class="mdl-navigation">
+			<!--
+			<nav class="mdl-navigation mdl-layout--large-screen-only">
+				<a class="mdl-navigation__link" href="">Blog</a>
+				<a class="mdl-navigation__link" href="">Bio</a>
+				<a class="mdl-navigation__link" href="">Contact</a>
+			</nav>
+			-->
+		</div>
+		<!--
+		<div class="mdl-layout__header-row">
+			<nav class="mdl-navigation mdl-layout--small-screen-only">
 				<a class="mdl-navigation__link" href="">Blog</a>
 				<a class="mdl-navigation__link" href="">Bio</a>
 				<a class="mdl-navigation__link" href="">Contact</a>
 			</nav>
 		</div>
+		-->
 	</header>
 	<main class="mdl-layout__content">
 		<div class="page-content">
