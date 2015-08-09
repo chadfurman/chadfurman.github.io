@@ -1,14 +1,12 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: Chad Furman - Senior Full Stack Developer
+email: chad@chadfurman.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Specializing in building REST APIs and Single-page applications in ES5/ES6/PHP. [:
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://chads.website" # the base hostname & protocol for your site
+twitter_username: chadfurman
+github_username:  ShadeLotus
 
 # Build settings
 markdown: kramdown
