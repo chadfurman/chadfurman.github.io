@@ -14,26 +14,30 @@ layout: default
 		<div class="mdl-card__actions mdl-card--border">
 			<a class="mdl-button mdl-button--colored">Read More</a>
 		</div>
+		<!--
 		<div class="mdl-card__menu">
 			<button class="mdl-button mdl-button--icon">
 				<i class="material-icons">share</i>
 			</button>
 		</div>
+		-->
 	</div>
 	{% endfor %}
 	{% for post in site.posts offset:1 limit:3 %}
 	<div class="mdl-card mdl-shadow--2dp mdl-cell--12-col mdl-cell--4-col-desktop row-post">
 		<div class="mdl-card__title">
-			<h2 class="mdl-card__title-text">A Post Title</h2>
+			<h3 class="mdl-card__title-text"><a href="{{ post.url }}">{{ post.title }}</a></h3>
 		</div>
 		<div class="mdl-card__actions mdl-card--border">
-			<a class="mdl-button mdl-button--colored">Read</a>
+			<a href="{{ post.url }}" class="mdl-button mdl-button--colored">Read</a>
 		</div>
+		<!--
 		<div class="mdl-card__menu">
 			<button class="mdl-button mdl-button--icon">
 				<i class="material-icons">share</i>
 			</button>
 		</div>
+		-->
 	</div>
 	{% endfor %}
 </div>
