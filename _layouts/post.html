@@ -4,6 +4,8 @@ layout: default
 <div class="mdl-card mdl-shadow--2dp mdl-cell--12-col post">
 	<div class="mdl-card__title">
 		<h1 class="mdl-card__title-text post-title">{{ page.title }}</h1>
+		<div class="mdl-layout-spacer"></div>
+		<div class="date" style="margin-right:60px;">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</div>
 	</div>
 	<div class="mdl-card__supporting-text mdl-card--border">
 		<article class="post-content">
@@ -11,7 +13,6 @@ layout: default
 		</article>
 	</div>
 	<div class="mdl-card__actions mdl-card--border">
-		<p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
 		{% if site.comments %}
 			<div id="disqus_thread"></div>
 			<script type="text/javascript">
