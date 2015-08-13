@@ -87,6 +87,8 @@ $ sails lift
 {% endhighlight %}
 -----
 
-Assuming you didn't delete any data when Sails asked you what to do, then navigating to http://localhost:1337/staff in your browser should give you a staffer in JSON.  If you deleted data, no worries, just close down sails and create another staffer in the repl.
+Assuming you didn't delete any data when Sails asked you what to do, then navigating to http://localhost:1337/staff in your browser should give you a staffer in JSON.  If you deleted data, try the shortcut url: http://localhost:1337/staff/create?name='Another Staffer'
+
+If you turned off shortcut URLs, no worries, just close down sails and create another staffer in the repl.
 
 Misson complete.
