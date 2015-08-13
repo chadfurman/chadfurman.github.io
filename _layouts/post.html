@@ -2,34 +2,47 @@
 layout: default
 ---
 <div class="mdl-card mdl-shadow--2dp mdl-cell--12-col post">
-	<div class="mdl-card__title">
-		<h1 class="mdl-card__title-text post-title">{{ page.title }}</h1>
-		<div class="mdl-layout-spacer"></div>
-		<div class="date mdl-layout--large-screen-only" style="margin-right:60px;">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</div>
-	</div>
-	<div class="mdl-card__supporting-text mdl-card--border">
-		<article class="post-content">
-			{{ content | markdownify }}
-		</article>
-	</div>
-	<div class="mdl-card__actions mdl-card--border">
-		{% if site.comments %}
-			<div id="disqus_thread"></div>
-			<script type="text/javascript">
-				/* * * CONFIGURATION VARIABLES * * */
-				var disqus_shortname = 'chadfurmanfullstackdeveloper';
+  <div class="mdl-card__title">
+    <h1 class="mdl-card__title-text post-title">{{ page.title }}</h1>
+    <div class="mdl-layout-spacer"></div>
+    <div class="date mdl-layout--large-screen-only" style="margin-right:60px;">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</div>
+  </div>
+  <div class="mdl-card__supporting-text mdl-card--border">
+    <article class="post-content">
+      {{ content | markdownify }}
+    </article>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <div class="mdl-layout--small-screens-only">
+      <span class='st_googleplus_large' displayText='Google +'></span>
+      <span class='st_wordpress_large' displayText='WordPress'></span>
+      <span class='st_reddit_large' displayText='Reddit'></span>
+      <span class='st_tumblr_large' displayText='Tumblr'></span>
+      <span class='st_digg_large' displayText='Digg'></span>
+      <span class='st_facebook_large' displayText='Facebook'></span>
+      <span class='st_twitter_large' displayText='Tweet'></span>
+      <span class='st_delicious_large' displayText='Delicious'></span>
+      <span class='st_linkedin_large' displayText='LinkedIn'></span>
+      <span class='st_pinterest_large' displayText='Pinterest'></span>
+      <span class='st_email_large' displayText='Email'></span>
+    </div>
+    {% if site.comments %}
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'chadfurmanfullstackdeveloper';
 
-				/* * * DON'T EDIT BELOW THIS LINE * * */
-				(function() {
-					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-		{% endif %}
-	</div>
-	<div class="mdl-card__menu mdl-layout--large-screen-only">
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    {% endif %}
+  </div>
+  <div class="mdl-card__menu mdl-layout--large-screen-only">
     <span class='st_googleplus_large' displayText='Google +'></span>
     <span class='st_wordpress_large' displayText='WordPress'></span>
     <span class='st_reddit_large' displayText='Reddit'></span>
@@ -41,5 +54,5 @@ layout: default
     <span class='st_linkedin_large' displayText='LinkedIn'></span>
     <span class='st_pinterest_large' displayText='Pinterest'></span>
     <span class='st_email_large' displayText='Email'></span>
-	</div>
+  </div>
 </div>
