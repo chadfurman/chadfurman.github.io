@@ -12,7 +12,6 @@ Let's start by following the [Sails.js getting started guide](http://sailsjs.org
 
 -----
 {% highlight console %}
-# I'm running linux
 $ sudo npm -g install sails
 {% endhighlight %}
 -----
