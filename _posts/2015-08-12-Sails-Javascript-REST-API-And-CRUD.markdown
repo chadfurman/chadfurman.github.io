@@ -5,7 +5,7 @@ date:   2015-08-12 22:03:15
 categories: [programming]
 tags: [angular.js, angular2, javascript, javascript frameworks, ES6, ECMA2015]
 ---
-Dynamic content is an important part of most applications.  This content needs to be created, edited, and retrieved for display.  Let's build a REST API in Sails for basic CRUD.
+Let's build a REST API in Sails for basic CRUD because dynamic content is an important part of most applications.
 
 ### Getting started
 Let's start by following the [Sails.js getting started guide](http://sailsjs.org/get-started).
