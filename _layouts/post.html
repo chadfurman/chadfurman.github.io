@@ -5,7 +5,7 @@ layout: default
 	<div class="mdl-card__title">
 		<h1 class="mdl-card__title-text post-title">{{ page.title }}</h1>
 		<div class="mdl-layout-spacer"></div>
-		<div class="date" style="margin-right:60px;">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</div>
+		<div class="date mdl-layout--large-screen-only" style="margin-right:60px;">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</div>
 	</div>
 	<div class="mdl-card__supporting-text mdl-card--border">
 		<article class="post-content">
@@ -29,7 +29,7 @@ layout: default
 			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 		{% endif %}
 	</div>
-	<div class="mdl-card__menu">
+	<div class="mdl-card__menu mdl-layout--large-screen-only">
     <span class='st_googleplus_large' displayText='Google +'></span>
     <span class='st_wordpress_large' displayText='WordPress'></span>
     <span class='st_reddit_large' displayText='Reddit'></span>
