@@ -4,6 +4,7 @@ title:  "Angular2 CMS with Material Design Lite"
 date:   2015-08-09 18:50:15
 categories: [programming]
 tags: [angular.js, angular2, javascript, javascript frameworks, es6, ecma2015, cms, material design, material design lite]
+published: false
 ---
 Building a system to manage content using latest web technology is what it's all about, right?  Angular2 and Material Design Lite bring new life to this routine task.  Let's explore!
 
