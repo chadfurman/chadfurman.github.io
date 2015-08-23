@@ -9,11 +9,9 @@ published: false
 Building a system to manage content using latest web technology is what it's all about, right?  Angular2 and Material Design Lite bring new life to this routine task.  Let's explore!
 
 ### Installing dependencies
-I wrote about [installing Angular2]({% post_url 2015-08-09-npm-install-angular2 %}).  We compiled traceur.js from source and setup a header for an Angular2 app using ES6.  Turns out, most people seem to be using Typescript.  This is simply javascript with typing, and lets us get at ES6 features pretty nicely.
+I wrote about [installing Angular2]({% post_url 2015-08-09-npm-install-angular2 %}).  We compiled traceur.js from source and setup a header for an Angular2 app using ES6.
 
-Might as well enter into the strictly typed land, yeah?  Then we'll be able to stick with the [Angular2 5-min quickstart](https://angular.io/docs/js/latest/quickstart.html) this time around without much hassel.
-
-Let's install [typescript's package manager](https://www.npmjs.com/package/tsd) and other dependencies.
+This time through, we'll grab down Typescript et al. and include our libs from CDNs.  Let's install [typescript's package manager](https://www.npmjs.com/package/tsd) and other dependencies.
 
 -----
 {% highlight console %}
@@ -23,12 +21,6 @@ $ mkdir cms-frontend
 $ cd cms-frontend
 $ tsd init
 $ tsd install angular2 es6-promise rx rx-lite --save # from the quickstart
-$ npm init
-$ npm install --save angular2
-$ npm install --save systemjs # for es6 module loading
-$ npm install --save material-design-lite
-$ bower init
-$ bower install --save traceur-runtime # runs our es6 code in the browser
 {% endhighlight %}
 -----
 
@@ -41,24 +33,26 @@ To start, we want just index.html to include all of our dependencies.
 <html>
 <head>
   <title>My first Angular2 CMS!</title>
-  <link rel="stylesheet" href="/node_modules/material-design-lite/material.css"></script>
-  <link rel="stylesheet" href="/style.css"></script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-  <!-- add material.js et al. after styles so as not to impeed page rendering -->
-  <script src="/node_modules/material-design-lite/material.js"></script>
-  <script src="/bower_components/traceur-runtime/traceur-runtime.js"></script>
-  <script src="/node_modules/systemjs/dist/system.js"></script>
-  <script src="/node_modules/angular2/angular2.js"></script>
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+  <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
+  <script src="https://jspm.io/system@0.16.js"></script>
+  <script src="https://code.angularjs.org/2.0.0-alpha.32/angular2.dev.js"></script>
 </head>
 <body>
-  <cms></cms>
+  <cms-app></cms-app>
   <script>System.import('cms-app');</script>
 </body>
 </html>
 {% endhighlight %}
 -----
 
-After we set the title, we include Material Design Lite css.  We're not worried about bringing in the sass files here.
+After we set the title, we include our stylesheets and scripts.  Pretty straight-forward so far.  I'm sure you can handle creating the style.css file :)
+
+If you are brave enough to be trying to install these dependencies via node, note that you'll need to configure paths for System.js
 
 We also load our own style.css before any javascript to get the page to render correctly while the js loads in the bg.
 
@@ -77,8 +71,7 @@ Traceur is going to let our ES6 magic happen.  Even though Typescript is compili
 {% highlight javascript %}
 <!-- cms-frontend/index.html -->
 <body>
-  <cms></cms>
-  <script>System.import('cms-app');</script>
+  <cms-app></cms-app>
 </body>
 {% endhighlight %}
 -----
@@ -140,5 +133,40 @@ $ http-server
 {% endhighlight %}
 -----
 
-Navigate to http://localhost:8080 and
+Navigate to http://localhost:8080 and... wait there's nothing there!  What?
+
+Just kidding.  You should actually see the text "This is Angular2: CMS" in beautiful Roboto Sans, 56px font size.  Yes?  Okay. No?!  Check for console/network errors and make sure your header paths are correct.
+
+Moving on.
+
+### Skipping Login
+This CMS will be wide-open.  Locally, that is.
+
+If you remember, we skipped auth when building our [REST API with Sails]({% post_url 2015-08-12-Sails-Javascript-REST-API-and-CRUD %}), also.  It's easy enough to implement oauth using passport and track auth tokens along with other user information (like, for example, an admin flag).  Maybe I'll do another article on adding oauth to an existing CMS and REST Api...
+
+### Material Design Staffer Admin
+We just want some basic MDL classes to give us a nice little starter-form.  We're gonna put them right into our cms-app.ts view.
+
+Our [API]({% post_url 2015-08-12-Sails-Javascript-REST-API-and-CRUD %}) has support for Staffers (aka `localhost:1337/staff`) and even has a convenient way for adding more during development (aka `localhost:1337/staff/create?name='any'&otherprop='more'`).  Note that there is no schema -- a staffer is just a JSON object.
+
+Let's setup a basic form.  Just a [textfield](http://www.getmdl.io/components/#textfields-section) with a label and a [submit button](http://www.getmdl.io/components/#buttons-section).
+
+-----
+{% highlight javascript %}
+/* cms-frontend/cms-app.ts  */
+@View({
+    template: `
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" id="name" />
+          <label class="mdl-textfield__label" for="sample1">Text...</label>
+        </div>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+          Save Staffr
+        </button>
+      </form>
+    `
+})
+{% endhighlight %}
+-----
 
