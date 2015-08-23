@@ -11,3 +11,6 @@ comments: true
 
 # Build settings
 markdown: kramdown
+
+gems:
+  - jekyll-sitemap
