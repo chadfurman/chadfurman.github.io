@@ -32,13 +32,13 @@ List is the homepage -- this and other routing is specififed by the angular ui c
 
 More details about [where stuff is](https://github.com/mwaylabs/generator-m#file-structure) can be found in the Generator M docs.
 
-### More Options
+### More options
 
 When making changes, note that there is a [grid system](http://ionicframework.com/docs/components/#grid) (and many other cool [components](http://ionicframework.com/docs/components/)) provided by Ionic.  You can also just use [Flexbox](http://www.smashingmagazine.com/2015/03/harnessing-flexbox-for-todays-web-apps/) to lay out your elements -- who really needs a grid system anymore?
 
 Also, I highly encourage exploring the [testing integration](https://github.com/mwaylabs/generator-m#testing) and adding in [e2e tests with protractor](http://angular.github.io/protractor/#/).
 
-### Compiling and Installing
+### Compiling and installing
 
 Add the platform of your choice to ionic, build for it, emulate it, and install it on your phone.  We're done :)
 
