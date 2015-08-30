@@ -36,7 +36,7 @@ More details about [where stuff is](https://github.com/mwaylabs/generator-m#file
 
 When making changes, note that there is a [grid system](http://ionicframework.com/docs/components/#grid) (and many other cool [components](http://ionicframework.com/docs/components/)) provided by Ionic.  You can also just use [Flexbox](http://www.smashingmagazine.com/2015/03/harnessing-flexbox-for-todays-web-apps/) to lay out your elements -- who really needs a grid system anymore?
 
-Also, I highly encourage exploring the [testing integration](https://github.com/mwaylabs/generator-m#testing) and adding in [e2e tests with protractor](http://angular.github.io/protractor/#/) tests..
+Also, I highly encourage exploring the [testing integration](https://github.com/mwaylabs/generator-m#testing) and adding in [e2e tests with protractor](http://angular.github.io/protractor/#/).
 
 ### Compiling and Installing
 
