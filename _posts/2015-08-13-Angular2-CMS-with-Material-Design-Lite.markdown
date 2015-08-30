@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Angular2 CMS with Material Design Lite and ES6"
+title:  "Angular2 CMS with Material Design and Typescript"
 date:   2015-08-09 18:50:15
 categories: [programming]
-tags: [angular.js, angular2, javascript, javascript frameworks, es6, ecma2015, cms, material design, material design lite, typescript, traceur]
+tags: [angular 2,  angular2, javascript, javascript frameworks, Typescript, cms, material design, material design lite, typescript, traceur, angular.js, angularjs, angular]
 published: false
 ---
 Building a system to manage content using latest web technology is what it's all about, right?  Angular2 and Material Design Lite bring new life to this routine task.  Let's explore!
@@ -140,15 +140,18 @@ Just kidding.  You should actually see the text "This is Angular2: CMS" in beaut
 Moving on.
 
 ### Skipping Login
-This CMS will be wide-open.  Locally, that is.
+If you remember, we skipped auth when building our [REST API with Sails]({% post_url 2015-08-12-Sails-Javascript-REST-API-and-CRUD %}), also.  Authentication will be left as an exercise for the reader :)
 
-If you remember, we skipped auth when building our [REST API with Sails]({% post_url 2015-08-12-Sails-Javascript-REST-API-and-CRUD %}), also.  It's easy enough to implement oauth using passport and track auth tokens along with other user information (like, for example, an admin flag).  Maybe I'll do another article on adding oauth to an existing CMS and REST Api...
+It's easy enough to implement oauth using passport and track auth tokens along with other user information (like, for example, an admin flag).  Comment if you want a post on this?
 
-### Material Design Staffer Admin
+### Staffer Admin
 We just want some basic MDL classes to give us a nice little starter-form.  We're gonna put them right into our cms-app.ts view.
 
 Our [API]({% post_url 2015-08-12-Sails-Javascript-REST-API-and-CRUD %}) has support for Staffers (aka `localhost:1337/staff`) and even has a convenient way for adding more during development (aka `localhost:1337/staff/create?name='any'&otherprop='more'`).  Note that there is no schema -- a staffer is just a JSON object.
 
+For our CMS, we're going to want a nice tabular layout of staff members and their attributes.  Additionally, we want a way to create new staffers as well asl update and remove existing staffers.
+
+### Material Design Lite: A Form
 Let's setup a basic form.  Just a [textfield](http://www.getmdl.io/components/#textfields-section) with a label and a [submit button](http://www.getmdl.io/components/#buttons-section).
 
 -----
@@ -168,5 +171,67 @@ Let's setup a basic form.  Just a [textfield](http://www.getmdl.io/components/#t
     `
 })
 {% endhighlight %}
+-----
+
+Ugly, though, to put all of this in the template tag like that.  Ideally, our CMS would have a component for the table, a component for the add and edit forms, and a staffer object that populates these components.  I have no idea how to do that.
+
+Let's figure it out.
+
+### Components in Angular 2
+Looks like typescript needs a reference to things it's importing, and then we simply import {Thing} from 'place';  where 'place' is a file that exports... well, let's just go into it.
+
+First, the updated cms-app.ts:
+-----
+{% highlight javascript %}
+/* cms-app.ts */
+  /// <reference path="typings/angular2/angular2.d.ts" />
+  /// <reference path="components/staff.ts" />
+  import {
+      Component,
+      View,
+      bootstrap
+  } from 'angular2/angular2';
+
+  import {Staff} from 'components/staff';
+
+  // Annotation section
+  @Component({
+    selector: 'cms-app',
+  })
+
+  @View({
+      template: `
+        <staff></staff>
+        <form action="#" class="mdl-grid cms-app">
+          <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+            <input class="mdl-textfield__input" type="text" id="name" />
+            <label class="mdl-textfield__label" for="name">Name</label>
+          </div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-cell mdl-cell--12-col">
+            Save Staffr
+          </button>
+        </form>
+      `,
+      directives: [Staff]
+  })
+
+
+  // Component controller
+  class CmsAppComponent {
+    name: string;
+
+    constructor() {
+      this.name = 'Angular2: CMS';
+      componentHandler.upgradeAllRegistered();
+    }
+  }
+
+  bootstrap(CmsAppComponent);
+{% endhighlight %}
+-----
+
+Note the new `<reference path="components/staff.ts">`, the `import {Staff} from ...`, a `<staff></staff>` tag in the template and the `directives: [Staff]` property in the view.
+
+And the staff.ts
 -----
 
