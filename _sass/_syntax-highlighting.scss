@@ -1,6 +1,12 @@
 /**
  * Syntax highlighting styles
  */
+ code {
+   display: inline-block;
+   background:#F8F8FF;
+   border:black dashed 1px;
+   padding:6px;
+}
 .highlight {
   background: #fff;
   @extend %vertical-rhythm !optional;
