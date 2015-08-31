@@ -14,7 +14,7 @@ We will now use Test Driven Development and add a `directive` to our app.
 
 ### What we need
 
- 1. [Scaffold an app with Ionic using Generator M](git@github.com:mwaylabs/generator-m.git)
+ 1. [Scaffold an app with Ionic using Generator M](https://github.com/mwaylabs/generator-m.git)
  2. Some knowledge on [testing angular directives](http://newtriks.com/2013/04/26/how-to-test-an-angularjs-directive/)
 
 ### Setting up
