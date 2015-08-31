@@ -6,7 +6,7 @@ categories: [javascript]
 tags: [angular.js, javascript, directives, yeoman, generator m, tdd, ionic]
 ---
 
-Directives are a feature of Angular, and thus Ionic, allowing us to make `<tags>` powered by JavaScript.
+Directives are a feature of Angular, and thus Ionic, allowing us to make tags powered by JavaScript.
 
 Last time, we talked about using Generator M to [quickly build up a mobile app]({& post_url 2015-08-29-ionic-isnt-it &}).
 
