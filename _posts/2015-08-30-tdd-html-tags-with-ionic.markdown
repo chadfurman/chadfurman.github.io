@@ -257,6 +257,8 @@ Basically, we define a template inside the directive, restrict the directive to 
 
 The click handlers play/pause as well as update the UI.  We could have added CSS animations, but that's a-whole-nother 1am blog post.
 
+Running the tests again should give you an all-green.
+
 ### Conclusion
 Karma is powerful.  It wasn't too hard to attach Karma to our Ionic application (once you get the paths right).
 
