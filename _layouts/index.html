@@ -23,7 +23,7 @@ layout: default
 		-->
 	</div>
 	{% endfor %}
-	{% for post in site.posts offset:1 limit:3 %}
+	{% for post in site.posts offset:1 limit:9 %}
 	<div class="mdl-card mdl-shadow--2dp mdl-cell--4-col-desktop mdl-cell--12-col row-post">
 		<div class="mdl-card__title">
 			<h3 class="mdl-card__title-text"><a href="{{ post.url }}">{{ post.title }}</a></h3>
