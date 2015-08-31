@@ -6,7 +6,7 @@ categories: [javascript]
 tags: [angular.js, javascript, directives, yeoman, generator m, tdd, ionic]
 ---
 
-Directives are a feature of Angular, and thus Ionic, allowing us to make <tags> powered by JavaScript.
+Directives are a feature of Angular, and thus Ionic, allowing us to make `<tags>` powered by JavaScript.
 
 Last time, we talked about using Generator M to [quickly build up a mobile app]({& post_url 2015-08-29-ionic-isnt-it &}).
 
@@ -25,15 +25,12 @@ Make sure you've installed the testing pre-reqs:
 {% highlight console %}
 $ sudo npm install -g generator-karma karma jasmine-node karma-jasmine
 $ cd project
-$ yo karma
 $ bower install --save-dev angular-mocks
+$ yo karma
 {% endhighlight %}
 -----
 
-and then give it a run inside of our [ionic app]({& post_url 2015-08-29-ionic-isnt-it &}):
-
-
-This gives us access to test/karma.conf.js -- in here we'll want to make the following changes:
+Karma generator sets up test/karma.conf.js -- in here we'll want to make the following changes:
 
 -----
 {% highlight javascript %}
@@ -60,20 +57,18 @@ config.set({
 {% endhighlight %}
 -----
 
-Run the tests:
+Now Karma can find everything it's looking for
+
+Run the tests.
 
 `karma start test/karma.conf.js`
 
-And connect to the localhost test server at `http://localhost:8080` or `http://localhost:9876` depending on port availability.
-
-You should see a `Karma` header bar.  We're in business.
+Without any tests, you should see a notice about `0 out of 0` tests passing.  Good.
 
 ### Writing our first test
 
-Put this in a file at `project/test/karma/sound-button.js`:
-
 -----
-This file belongs in test/karma/sound-button.js
+This in a file at `project/test/karma/sound-button.js`:
 {% highlight javascript %}
 'use strict';
 
@@ -204,6 +199,7 @@ We actually kinda want to write a directive, right?  That was the whole idea.
 This directive below should make the test pass.
 
 ----
+This file belongs in `app/main/directives/sound-button.js`
 {% highlight javascript %}
 'use strict';
 
@@ -257,7 +253,7 @@ angular.module('main')
 {% endhighlight %}
 ----
 
-Basically, we define a template inside the directive, restrict the directive to element bindings (i.e. <sound-button>), setup the audio event, and attach click handlers.
+Basically, we define a template inside the directive, restrict the directive to element bindings (i.e. `<sound-button>`), setup the audio event, and attach click handlers.
 
 The click handlers play/pause as well as update the UI.  We could have added CSS animations, but that's a-whole-nother 1am blog post.
 
