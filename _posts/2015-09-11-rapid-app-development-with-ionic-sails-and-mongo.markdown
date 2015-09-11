@@ -6,7 +6,7 @@ categories: [programming]
 tags: [ionic, sails, mongo, mvp, REST, hybrid app]
 ---
 
-Curious about Hybrid App development and/or REST APIs built in Javascript?
+Curious about hybrid app development and/or REST APIs built in JavaScript?
 
 ---------------
 
