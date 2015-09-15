@@ -4,7 +4,8 @@ email: chad@chadfurman.com
 description: > # this means to ignore newlines until "baseurl:"
   Specializing in building REST APIs and Single-page applications in ES5/ES6/PHP. [:
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://chads.website" # the base hostname & protocol for your site
+url: "https://chads.website" # the base hostname & protocol for your site
+enforce_ssl: chads.website
 twitter_username: chadfurman
 github_username:  ShadeLotus
 comments: true
@@ -12,5 +13,3 @@ comments: true
 # Build settings
 markdown: kramdown
 
-gems:
-  - jekyll-sitemap
