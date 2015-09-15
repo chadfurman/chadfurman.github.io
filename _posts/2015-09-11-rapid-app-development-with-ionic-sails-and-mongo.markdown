@@ -16,4 +16,4 @@ Curious about hybrid app development and/or REST APIs built in JavaScript?
 
 The above slides are for [my presentation today at NERD Summit 2015](https://nerdsummit.org/nerdsummit-2015/sessions/rapid-app-development-ionic-sails-and-mongo)
 
-I will update with the video when available :)
+I appologize for the audio of the [recorded talk](https://www.youtube.com/watch?v=DhygZbslTug).
