@@ -14,17 +14,11 @@ layout: default
   </div>
   <div class="mdl-card__actions mdl-card--border">
     <div class="mdl-layout--small-screens-only">
-      <span class='st_googleplus_large' displayText='Google +'></span>
-      <span class='st_wordpress_large' displayText='WordPress'></span>
-      <span class='st_reddit_large' displayText='Reddit'></span>
-      <span class='st_tumblr_large' displayText='Tumblr'></span>
-      <span class='st_digg_large' displayText='Digg'></span>
-      <span class='st_facebook_large' displayText='Facebook'></span>
-      <span class='st_twitter_large' displayText='Tweet'></span>
-      <span class='st_delicious_large' displayText='Delicious'></span>
-      <span class='st_linkedin_large' displayText='LinkedIn'></span>
-      <span class='st_pinterest_large' displayText='Pinterest'></span>
-      <span class='st_email_large' displayText='Email'></span>
+      Sharing Options:
+      <a target="_blank" href="https://www.facebook.com/sharer.php?u={{site.url}}{{page.url}}">Facebook</a> |
+      <a target="_blank" href="https://twitter.com/share?url={{site.url}}{{page.url}}&text={{page.excerpt | strip_html}}">Twitter</a> |
+      <a target="_blank" href="https://plusone.google.com/_/+1/confirm?hl=en&url={{site.url}}{{page.url}}&content={{page.excerpt | strip_html}}">Google</a> |
+      <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url={{site.url}}{{page.url}}&title={{page.title}}&summary={{page.excerpt | strip_html}}&source=Chad%20Furman%20-%20Senior%20Full-Stack%20Developer">LinkedIn</a>
     </div>
     {% if site.comments %}
       <div id="disqus_thread"></div>
@@ -41,18 +35,5 @@ layout: default
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
     {% endif %}
-  </div>
-  <div class="mdl-card__menu mdl-layout--large-screen-only">
-    <span class='st_googleplus_large' displayText='Google +'></span>
-    <span class='st_wordpress_large' displayText='WordPress'></span>
-    <span class='st_reddit_large' displayText='Reddit'></span>
-    <span class='st_tumblr_large' displayText='Tumblr'></span>
-    <span class='st_digg_large' displayText='Digg'></span>
-    <span class='st_facebook_large' displayText='Facebook'></span>
-    <span class='st_twitter_large' displayText='Tweet'></span>
-    <span class='st_delicious_large' displayText='Delicious'></span>
-    <span class='st_linkedin_large' displayText='LinkedIn'></span>
-    <span class='st_pinterest_large' displayText='Pinterest'></span>
-    <span class='st_email_large' displayText='Email'></span>
   </div>
 </div>
