@@ -10,5 +10,5 @@ github_username:  ShadeLotus
 comments: true
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 
