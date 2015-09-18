@@ -10,10 +10,6 @@ Curious about hybrid app development and/or REST APIs built in JavaScript?
 
 ---------------
 
-<iframe id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" width="550" height="400" src="https://prezi.com/embed/-hwlcnf_hwvw/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZS2czc0xSWU1MN3NiWkJNRmVwYzVmU0VwZTcyWkE&amp;landing_sign=VZR1MSX7oom0yvuht0Nohyhip-uWY5Vhig45RgqNk1Y"></iframe>
-
----------------
-
   ~~The above slides~~ The prezi embed was causing issues with HTTPS because it requests unsecured assets which can have content injected into them (did you know you can inject javascript into stylesheets through image URLs?)
 
   The [slides here](https://prezi.com/-hwlcnf_hwvw/rapid-app-development/) are for [my presentation at NERD Summit 2015](https://nerdsummit.org/nerdsummit-2015/sessions/rapid-app-development-ionic-sails-and-mongo)
