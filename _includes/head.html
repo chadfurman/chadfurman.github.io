@@ -2,7 +2,7 @@
   <script type="text/javascript">
     var host = 'chads.website';
     if ((host == window.location.host) && (window.location.protocol != 'https:')) {
-      window.location.protocol = 'https:';
+      window.location = 'https://' + window.location.host + window.location.pathname;
     }
   </script>
 	<meta charset="utf-8">
