@@ -9,11 +9,12 @@ tags: [bdd, cucumber.js, gherkin, project planning]
 Delivering a fully end-to-end tested product which verifiably produces value might sound like a bit of a dream.  Behavior driven development ensures that each feature is formally defined (think automated testing) and directly related to a business goal.
 
 The steps are as follows:
-* Start with a goal
-* Identify actors and what they do that relates them to the goal
-* Identify the behaviors which the actors must perform
-* Identify features which enable the behavior and assess the value/complexity of each
-* Write feature specifications with examples to remove ambiguity
+
+1. Start with a goal
+2. Identify actors and what they do that relates them to the goal
+3. Identify the behaviors which the actors must perform
+4. Identify features which enable the behavior and assess the value/complexity of each
+5. Write feature specifications with examples to remove ambiguity
 
 Interesting to point out that we won't actually talk about programming directly in this article.  Also interesting: these [slides on BDD](https://prezi.com/_apkxraabzzz/bdd/)
 
