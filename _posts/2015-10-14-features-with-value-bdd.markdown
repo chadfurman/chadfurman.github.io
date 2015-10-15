@@ -157,7 +157,7 @@ Feature: Multiple site support
       |  20   |  5  |  15  |
 ```
 
-#### Steps
+### Steps
     We're only going to talk in detail about steps.  Properly written step definitions translate directly into automated end-to-end tests.
 
 ```
@@ -170,7 +170,7 @@ Given I am on the homepage
 
     The words I have chosen match up against the [Cucumber-Mink Step Dictionary](cucumber-mink.js.org/steps) -- this saves us a lot of time.
 
-#### Step definitions
+### Step definitions
     Cucumber-mink step dictionary saves us from having to write the javascript which validates that UI elements are present.  If you've never done testing before and that sounds tedious, rejoice!  With over 350 unique steps, I only had to manually define maybe 20, and these were around database interaction and uncommon UI.
 
     If you were to write your own step definition in Cucumber.js, it might look as follows:
