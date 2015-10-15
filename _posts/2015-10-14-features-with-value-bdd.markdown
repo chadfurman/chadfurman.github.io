@@ -26,7 +26,9 @@ Specific, measurable, attainable, relevant, and time-bound.
 Consider the following:
 
     100 purple widget sales through the website by the end of December 2015
+
 vs
+
     Sell a good number of widgets through the site
 
 The first goal makes it so you feel good about selling 101 purple widgets in November, where the second goal is a little less certain.
@@ -35,61 +37,64 @@ The first goal makes it so you feel good about selling 101 purple widgets in Nov
 Actors are people with behaviors that affect the goal.  
 
 Sticking with our `purple widgets` example, we have: 
-    * `buyers` of the widgets
-    * site `admins`
-    * `warehouse` distribution center
-    * `finance` department
+
+* `buyers` of the widgets
+* site `admins`
+* `warehouse` distribution center
+* `finance` department
 
 Buyers, admins, warehouse, and finance.
 
 ## Valuable Behaviors
 What is the behavior of the buyers that relate them to the goal?  Well, they buy things.  In order to buy things, they must see things and be able to click on them.
 We might describe the behaviors of our actors as follows:
-    * Buyers:
-        * See three purple widgets featured on homepage
-        * Browse featured widgets
-        * Navigate between widget categories
-        * See widget thumbnails on category view
-        * See widget details
 
-    * Admins:
-        * Login on a private page
-        * add widgets
-        * remove widgets
-        * update widgets
-        * moderate comments
+* Buyers:
+    * See three purple widgets featured on homepage
+    * Browse featured widgets
+    * Navigate between widget categories
+    * See widget thumbnails on category view
+    * See widget details
 
-    * Warehouse:
-        * receive shipment notification
+* Admins:
+    * Login on a private page
+    * add widgets
+    * remove widgets
+    * update widgets
+    * moderate comments
 
-    * Finance:
-        * receive payment information
-        * confirm payment information
-        * process payment
-        * approve order
+* Warehouse:
+    * receive shipment notification
+
+* Finance:
+    * receive payment information
+    * confirm payment information
+    * process payment
+    * approve order
 
 ## Features
 This is similar to behaviors, except the behavior is what the actor does and the feature is what the application does.
 
 A `buyer` needs to see three purple widgets on their homepage.
 
-    * Possible features:
-        * featured widget box on homepage
-        * display three featured widgets on homepage
-        * featured widget box stands out with a highlight
-        * featured widget box is at the top of the main content area
+* Possible features:
+    * featured widget box on homepage
+    * display three featured widgets on homepage
+    * featured widget box stands out with a highlight
+    * featured widget box is at the top of the main content area
 
 For each of these features, I would estiamte the value to be medium or high and the complexity to be relatively low.  These are low-hanging fruit which can be safely reserved for later in the project if need be.
 
 A more difficult behavior might be for the `warehouse` actor.  The `warehouse` needs to receive shipment notifications, which is a bit involved:
-    * user order must be approved 
-        * high value, high complexity
-    * approved orders must be parsed into ASCII flat file format 
-        * high value, medium complexity
-    * flat file must be FTPd to `warehouse` automatically 
-        * medium value, medium complexity
-    * FTP credentials are not in the repo 
-        * high value, low complexity
+
+* user order must be approved 
+    * high value, high complexity
+* approved orders must be parsed into ASCII flat file format 
+    * high value, medium complexity
+* flat file must be FTPd to `warehouse` automatically 
+    * medium value, medium complexity
+* FTP credentials are not in the repo 
+    * high value, low complexity
 
 
 The goal here is to start to communicate what the behavior means to the developer.  Communication goes both ways, and this gives a framework for prioritizing development tasks as well as describing the tasks that must be performed.
