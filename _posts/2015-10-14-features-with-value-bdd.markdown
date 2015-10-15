@@ -125,7 +125,7 @@ By writing our feature specifications in [Gherkin](https://cucumber.io/docs/refe
     * A set of steps that applies to a group of scenarios
 * `Scenario Outline`
     * A template for generating scenarios based on example data
-* `Examples
+* `Examples`
     * tabular data used for populating the scenario outline templates
 
 This might look like the following:
