@@ -16,7 +16,7 @@ The steps are as follows:
 4. Identify features which enable the behavior and assess the value/complexity of each
 5. Write feature specifications with examples to remove ambiguity
 
-Interesting to point out that we won't actually talk about programming directly in this article.  Also interesting: these [slides on BDD](https://prezi.com/_apkxraabzzz/bdd/)
+Interesting to point out that we barely talk about programming directly in this article.  Also interesting: these [slides on BDD](https://prezi.com/_apkxraabzzz/bdd/)
 
 ---------------
 
