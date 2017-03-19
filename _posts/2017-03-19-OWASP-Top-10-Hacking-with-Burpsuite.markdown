@@ -5,9 +5,9 @@ date:   2017-03-19 00:48:00
 categories: [general news]
 tags: [hacking, burpsuite, owasp, websec, cybersec]
 ---
-Below are the resources I use in my talk.
+Here are the resources I use in my talk.
 
 ---------------
 
-* [Slides]()
-* [Cheatsheet]()
+* [Slides](https://github.com/chadfurman/chadfurman.github.io/raw/master/owasp_slides.pdf)
+* [Cheatsheet](https://raw.githubusercontent.com/chadfurman/chadfurman.github.io/master/mutillidae_cheatsheet.txt)
