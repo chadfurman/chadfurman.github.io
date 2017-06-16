@@ -9,5 +9,5 @@ Here are the resources I use in my talk.
 
 ---------------
 
-* [Slides](https://github.com/chadfurman/chadfurman.github.io/raw/master/owasp_slides.pdf)
+* [Slides](https://github.com/chadfurman/chadfurman.github.io/blob/master/OWASP%20Slides.pdf)
 * [Cheatsheet](https://raw.githubusercontent.com/chadfurman/chadfurman.github.io/master/mutillidae_cheatsheet.txt)
