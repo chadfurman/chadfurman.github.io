@@ -6,7 +6,6 @@ categories: [development]
 tags: [graphql, web application development, enterprise applications, rest]
 ---
 
-# How GraphQL Saved My Project
 The title of this article could just as easily be *“Why I never want to work on another REST API ever again”*, or perhaps more mildly *“Why GraphQL and Why Not REST?”*  
 
 I am writing this on the heels of a second read-through of [“REST vs GraphQL: A Critical Review”](https://blog.goodapi.co/rest-vs-graphql-a-critical-review-5f77392658e7) (found here: https://blog.goodapi.co/rest-vs-graphql-a-critical-review-5f77392658e7) and felt that Z’s article is minimizing the benefits of GraphQL in a way that makes REST look like it can still be a plausible solution to enterprise business needs.
@@ -88,7 +87,7 @@ Yes, having one GraphQL endpoint that returns a different response based on the 
 ##### Against: GraphQL does not scale / neglects the problems of the distributed system
 **Counter**: A GraphQL API can serve as a consistent gateway to microservices.  Alternatively, everytime you change the microservice API then all of your clients have to be updated.  See here for more discussion: https://stackoverflow.com/questions/38071714/graphql-and-microservice-architecture#38079681 
 
-Also, if you are talking about requests per second, see the response above to the notion that GraphQL is not performant (i.e. upwards of 1500 RPS on a single server is not too shabby)
+Also, if you are talking about requests per second, see the response above to the notion that [GraphQL is not performant](#against-graphql-is-not-performant) (i.e. upwards of 1500 RPS on a single server is not too shabby)
 
 ##### Against: GraphQL does not support Code-on-Demand
 **Counter**: A GraphQL endpoint can return anything you ask it to.  It can return XML, JSON, or binary.  You can hook the express response object and overwrite it completely, returning early from execution and spit out a new mime-type if you want to.  However, the best way is likely to just return JSON in response to a query and, in that JSON, link to where the application can download the code-on-demand. 
@@ -113,7 +112,7 @@ Okay, now go take a look at your Apiary documentation and tell me you don’t wa
 You can pick.  I think you know what I would pick given the same choice :)
 
 ##### Against: GraphQL is not mature
-**Counter**: See my rebuttal below to the criticism that “GraphQL is not Enterprise-ready”.  GraphQL has matured nicely since 2015.
+**Counter**: See my rebuttal below to the criticism that [“GraphQL is not Enterprise-ready”](#against-graphql-is-not-enterprise-ready).  GraphQL has matured nicely since 2015.
 
 ##### Against: GraphQL does not have any printed books
 Really?  You put this in a picture of a table as a comparison point?  In June of 2018, there were certainly books published on GraphQL if you cared to look.  A quick google search for “GraphQL books” straight up disproves this.  
