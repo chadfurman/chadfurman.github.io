@@ -8,7 +8,7 @@ tags: [graphql, web application development, enterprise applications, rest]
 
 The title of this article could just as easily be *“Why I never want to work on another REST API ever again”*, or perhaps more mildly *“Why GraphQL and Why Not REST?”*  
 
-I am writing this on the heels of a second read-through of [“REST vs GraphQL: A Critical Review”](https://blog.goodapi.co/rest-vs-graphql-a-critical-review-5f77392658e7) (found here: https://blog.goodapi.co/rest-vs-graphql-a-critical-review-5f77392658e7) and felt that Z’s article is minimizing the benefits of GraphQL in a way that makes REST look like it can still be a plausible solution to enterprise business needs.
+I am writing this on the heels of a second read-through of [“REST vs GraphQL: A Critical Review”](https://blog.goodapi.co/rest-vs-graphql-a-critical-review-5f77392658e7) and felt that Z’s article is minimizing the benefits of GraphQL in a way that makes REST look like it can still be a plausible solution to enterprise business needs.
 
 It cannot.  
 
@@ -44,9 +44,9 @@ In spite of this, over the next few months I did manage to get the thing to work
 
 ##### Enter GraphQL.
 
-Having done some research after a friend pointed me towards what-was-then-called-PostgraphQL-now-called-Postgraphile, I knew that I could quickly spin-up an interactively self-documenting API if all I did was build a robust Postgres schema complete with row-level security and role-based access control.  I also knew that Relay Modern offered declarative data dependencies, that declarative data dependencies would cut my development time in half or more, and that I needed them in my life and in my project were I to be successful.
+Having done some research after a friend pointed me towards what-was-then-called-PostgraphQL-now-called-[Postgraphile](https://www.graphile.org/postgraphile/), I knew that I could quickly spin-up an interactively self-documenting API if all I did was build a robust Postgres schema complete with row-level security and role-based access control.  I also knew that [Relay Modern](https://facebook.github.io/relay/) offered declarative data dependencies, that declarative data dependencies would cut my development time in half or more, and that I needed them in my life and in my project were I to be successful.
 
-If GraphQL is the raw ingredients, Postgraphile was the oven and Relay Modern was the delicious meal that was served on my golden web development platter.  I now had a way to create pristine data layer complete with JWT-based authentication from my database and sprinkle some NodeJS schema extensions here or there like little candy sprinkles that make the thing sell.
+If GraphQL is the raw ingredients, Postgraphile was the oven and Relay Modern was the delicious meal that was served on my golden web development platter.  I now had a way to create pristine data layer complete with JWT-based authentication from my database and sprinkle some [NodeJS schema extensions](https://www.graphile.org/postgraphile/extending/) here or there for extra bursts of flavor to help the thing sell.
 
 ### Stop Talking About Food!  How Did GraphQL Save The Project?
 
@@ -69,10 +69,10 @@ And about security?   Multiple (read: three so far) external auditors gave us ve
 ### Arguments Against GraphQL, Counter-Arguments, and Concessions
 
 #### **1. Against: GraphQL is best-suited for when you have one client that you control**
-**Counter**: GraphQL is used by multiple entities to expose external APIs that are easily consumed by clients.  Yelp, Shopify, Github, and more: https://github.com/APIs-guru/graphql-apis/blob/master/README.md
+**Counter**: GraphQL is used by multiple entities to expose external APIs that are easily consumed by clients.  [Yelp, Shopify, Github, and more...](https://github.com/APIs-guru/graphql-apis/blob/master/README.md)
 
 #### **2. Against: GraphQL is not performant**
-**Counter**: Postgraphile handles 500-1500 (depending on query complexity) requests a second.  Shopify uses Ruby-on-Rails and serves 80,000 request per second.  At the end of the day, the conversation about scaling comes down to cost.  How much do the EC2 instances in the autoscaling group, the RDS read-only replications etc. cost compared to the cost savings in developer resources?  I’d say 1500 requests per second for simple queries and 500 requests per second for more complex queries (with a single server) is more than adequate to help a start-up meet their business goals.
+**Counter**: [Postgraphile handles 500-1500 requests a second](https://www.graphile.org/postgraphile/performance/) depending on complexity.  [Shopify uses Ruby-on-Rails for their graphql](https://www.youtube.com/watch?v=2It9NofBWYg) and [serves 80,000 request per second](https://twitter.com/dhh/status/885776244532551680).  At the end of the day, the conversation about scaling comes down to cost.  How much do the EC2 instances in the autoscaling group, the RDS read-only replications etc. cost compared to the cost savings in developer resources?  I’d say 1500 requests per second for simple queries and 500 requests per second for more complex queries (with a single server) is more than adequate to help a start-up meet their business goals.
 
 If you are concerned about network traffic associated with a GraphQL request, or about server-load in having to parse strings associated with GraphQL requests, check out persistent queries, reverse proxy caches, and API key request limits.
 
@@ -85,7 +85,7 @@ Yes, having one GraphQL endpoint that returns a different response based on the 
 **Counter**: That said, Relay Modern provides a very beautiful client-side state management system complete with a caching layer.  It does not have to request the same query when you navigate between pages of your SPA because it already has all the data it needs in the client-side cache.
 
 #### **4. Against: GraphQL does not scale / neglects the problems of the distributed system**
-**Counter**: A GraphQL API can serve as a consistent gateway to microservices.  Alternatively, everytime you change the microservice API then all of your clients have to be updated.  See here for more discussion: https://stackoverflow.com/questions/38071714/graphql-and-microservice-architecture#38079681 
+**Counter**: A GraphQL API can serve as a consistent gateway to microservices.  Alternatively, everytime you change the microservice API then all of your clients have to be updated.  [More discussion on StackOverflow](https://stackoverflow.com/questions/38071714/graphql-and-microservice-architecture#38079681)
 
 Also, if you are talking about requests per second, see the response above to the notion that [GraphQL is not performant](#against-graphql-is-not-performant) (i.e. upwards of 1500 RPS on a single server is not too shabby)
 
@@ -98,7 +98,7 @@ Ignoring for a second that most REST APIs do not provide a uniform interface, th
 
 
 #### **7. Against: GraphQL docs are an arcane gql schema file**
-Please take a moment to play with the [GraphiQL Explorer of GitHub](https://developer.github.com/v4/explorer/) (here: https://developer.github.com/v4/explorer/) or of any of the [other APIs listed on APIs-guru github](https://github.com/APIs-guru/graphql-apis/blob/master/README.md) (here: https://github.com/APIs-guru/graphql-apis/blob/master/README.md)
+Please take a moment to play with the [GraphiQL Explorer of GitHub](https://developer.github.com/v4/explorer/) (here: [https://developer.github.com/v4/explorer/](https://chads.website/development/2018/08/03/How-GraphQL-Saved-My-Project.html)) or of any of the [other APIs listed on APIs-guru github](https://github.com/APIs-guru/graphql-apis/blob/master/README.md) (here: https://github.com/APIs-guru/graphql-apis/blob/master/README.md)
 
 Now that you’ve done that, note that this tool is automagical in that the entire documentation tab (over in the right corner there) is auto-generated from field names and descriptions you put in your code.  
 
@@ -118,7 +118,7 @@ You can pick.  I think you know what I would pick given the same choice :)
 Really?  You put this in a picture of a table as a comparison point?  In June of 2018, there were certainly books published on GraphQL if you cared to look.  A quick google search for “GraphQL books” straight up disproves this.  
 
 #### **11. Against: GraphQL is not enterprise-ready**
-Tell that to Yelp, Shopify, Facebook, and many many more (https://medium.com/@Akryum/oh-no-another-bullet-points-under-argumented-article-with-misleading-comparison-charts-d0dca01d2c04).  Note, also, that GraphQL continues to grow in the public-sphere and that Facebook as since relinquished its patents on the tech to the community at large.  
+Tell that to [Yelp, Shopify, Facebook, and many many more](https://medium.com/@Akryum/oh-no-another-bullet-points-under-argumented-article-with-misleading-comparison-charts-d0dca01d2c04).  Note, also, that GraphQL continues to grow in the public-sphere and that Facebook as since relinquished its patents on the tech to the community at large.  
 
 I’ve also seen Enterprises using PHP 4 when PHP 7 just came out, using CakePHP 1 when the newest version was 3+, and interfacing with it all in jQuery.  The effects of an unmaintainable REST API can be felt many years in the future.
 
