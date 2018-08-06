@@ -68,70 +68,70 @@ And about security?   Multiple (read: three so far) external auditors gave us ve
 
 ### Arguments Against GraphQL, Counter-Arguments, and Concessions
 
-##### Against: GraphQL is best-suited for when you have one client that you control
+#### Against: GraphQL is best-suited for when you have one client that you control
 **Counter**: GraphQL is used by multiple entities to expose external APIs that are easily consumed by clients.  Yelp, Shopify, Github, and more: https://github.com/APIs-guru/graphql-apis/blob/master/README.md
 
-##### Against: GraphQL is not performant
+#### Against: GraphQL is not performant
 **Counter**: Postgraphile handles 500-1500 (depending on query complexity) requests a second.  Shopify uses Ruby-on-Rails and serves 80,000 request per second.  At the end of the day, the conversation about scaling comes down to cost.  How much do the EC2 instances in the autoscaling group, the RDS read-only replications etc. cost compared to the cost savings in developer resources?  I’d say 1500 requests per second for simple queries and 500 requests per second for more complex queries (with a single server) is more than adequate to help a start-up meet their business goals.
 
 If you are concerned about network traffic associated with a GraphQL request, or about server-load in having to parse strings associated with GraphQL requests, check out persistent queries, reverse proxy caches, and API key request limits.
 
 
-##### Against: GraphQL is not cacheable
+#### Against: GraphQL is not cacheable
 **Concession**: I assume you are talking about HATEOAS and using hyper-links to resources then letting the browser make extra requests to those resources and cache the response.  The browser then uses the cached response on every subsequent request.
 
 Yes, having one GraphQL endpoint that returns a different response based on the query does toss out this caching mechanism.  Yes, the server throwing up a proxy cache is not the same thing (though, technically, is caching).
 
 **Counter**: That said, Relay Modern provides a very beautiful client-side state management system complete with a caching layer.  It does not have to request the same query when you navigate between pages of your SPA because it already has all the data it needs in the client-side cache.
 
-##### Against: GraphQL does not scale / neglects the problems of the distributed system
+#### Against: GraphQL does not scale / neglects the problems of the distributed system
 **Counter**: A GraphQL API can serve as a consistent gateway to microservices.  Alternatively, everytime you change the microservice API then all of your clients have to be updated.  See here for more discussion: https://stackoverflow.com/questions/38071714/graphql-and-microservice-architecture#38079681 
 
 Also, if you are talking about requests per second, see the response above to the notion that [GraphQL is not performant](#against-graphql-is-not-performant) (i.e. upwards of 1500 RPS on a single server is not too shabby)
 
-##### Against: GraphQL does not support Code-on-Demand
+#### Against: GraphQL does not support Code-on-Demand
 **Counter**: A GraphQL endpoint can return anything you ask it to.  It can return XML, JSON, or binary.  You can hook the express response object and overwrite it completely, returning early from execution and spit out a new mime-type if you want to.  However, the best way is likely to just return JSON in response to a query and, in that JSON, link to where the application can download the code-on-demand. 
 
 
-##### Against: GraphQL does not provide a Uniform Interface
+#### Against: GraphQL does not provide a Uniform Interface
 Ignoring for a second that most REST APIs do not provide a uniform interface, the GraphQL fields and mutation names can be uniform within an API by enforcing naming conventions.  This is not the same as having “.documents/10 “, admittedly,  However, the interactive GraphiQL documentation that is easily searchable and maintainable more than offsets this lack of a “Uniform Interface”.  Now, that said, most REST APIs do not have a Uniform Interface model for reasons layed out in “Why REST Causes Web Application Projects to Fail”
 
 
-##### Against: GraphQL docs are an arcane gql schema file
+#### Against: GraphQL docs are an arcane gql schema file
 Please take a moment to play with the [GraphiQL Explorer of GitHub](https://developer.github.com/v4/explorer/) (here: https://developer.github.com/v4/explorer/) or of any of the [other APIs listed on APIs-guru github](https://github.com/APIs-guru/graphql-apis/blob/master/README.md) (here: https://github.com/APIs-guru/graphql-apis/blob/master/README.md)
 
 Now that you’ve done that, note that this tool is automagical in that the entire documentation tab (over in the right corner there) is auto-generated from field names and descriptions you put in your code.  
 
 Okay, now go take a look at your Apiary documentation and tell me you don’t want GraphiQL instead...
 
-##### Against: GraphQL requires bikeshedding (content negotiation, network errors, caching), etc. etc.
+#### Against: GraphQL requires bikeshedding (content negotiation, network errors, caching), etc. etc.
 **Concession**: So, I’ll give you this one. How’s that?  You can build a REST API following the rigorous standards of REST APIs, make sure that you use HATEOAS properly to fully take advantage of HTTP caching, use HTTP Error Codes in all of your responses, and live life happily ever after.  
 
 **Counter**: Or, you could document a set of conventions and enforce them during code review.  For caching you can rely on Relay Modern client-side and optionally even throw up a reverse proxy server.  Then you can have GraphiQL autogenerate your docs and more (because REST has lots of bike-shedding associated with documentation tools).  
 
 You can pick.  I think you know what I would pick given the same choice :)
 
-##### Against: GraphQL is not mature
+#### Against: GraphQL is not mature
 **Counter**: See my rebuttal below to the criticism that [“GraphQL is not Enterprise-ready”](#against-graphql-is-not-enterprise-ready).  GraphQL has matured nicely since 2015.
 
-##### Against: GraphQL does not have any printed books
+#### Against: GraphQL does not have any printed books
 Really?  You put this in a picture of a table as a comparison point?  In June of 2018, there were certainly books published on GraphQL if you cared to look.  A quick google search for “GraphQL books” straight up disproves this.  
 
-##### Against: GraphQL is not enterprise-ready
+#### Against: GraphQL is not enterprise-ready
 Tell that to Yelp, Shopify, Facebook, and many many more (https://medium.com/@Akryum/oh-no-another-bullet-points-under-argumented-article-with-misleading-comparison-charts-d0dca01d2c04).  Note, also, that GraphQL continues to grow in the public-sphere and that Facebook as since relinquished its patents on the tech to the community at large.  
 
 I’ve also seen Enterprises using PHP 4 when PHP 7 just came out, using CakePHP 1 when the newest version was 3+, and interfacing with it all in jQuery.  The effects of an unmaintainable REST API can be felt many years in the future.
 
 Enterprises are surprisingly robust organizations that really only care about solving their business goals with the most cost-effective (secure, efficient, effective) method.  I believe that the most cost effective method is to use GraphQL to empower developers to iterate on and deliver maintainable code faster.  
 
-##### Against: GraphQL couples the client to the server at development time
+#### Against: GraphQL couples the client to the server at development time
 *AKA “application state is not driven by the server”*
 
 **Counter**: No matter what, the client relies on the server to spit out data in a consistent fashion.  Assuming again you are referencing HATEOAS then note that HATEOAS does not require the API to implement it in a specific way -- the API could elect to change the way HATEOAS is implemented. 
 
 Moreover, the power of Relay Modern and declarative data dependencies makes it empowering and beneficial to control application state client-side.
 
-##### Against: GraphQL query optimization is hard
+#### Against: GraphQL query optimization is hard
 **Counter**: Premature optimization is a death knell for software projects.
 
 GraphQL is easy to setup, maintain, and consume.  In the long run, you should only optimize when you have bottlenecks.  And once you have performance bottlenecks then you know where your time is best spent in optimizations.  The time you save in constructing your client and server is in no way lost on late-stage optimizations.  
